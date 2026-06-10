@@ -1,0 +1,146 @@
+MINI PROJECT: 2D GRAPHICS EDITOR IN C
+
+====================================================
+PROMPT 1
+========
+
+Write a menu-driven 2D graphics editor in C using a 2D character array. The editor should display graphics using '*' and '_' characters.
+
+# RESPONSE
+
+Generated the basic project structure with:
+
+* Canvas represented as a 2D array
+* Menu-driven interface
+* Functions to initialize and display the canvas
+
+====================================================
+PROMPT 2
+========
+
+Create a rectangle drawing function in C that draws the border of a rectangle on a 2D character canvas using '*' characters.
+
+# RESPONSE
+
+Generated drawRectangle() function that:
+
+* Accepts x, y, width, and height
+* Draws rectangle borders
+* Performs boundary checking
+
+====================================================
+PROMPT 3
+========
+
+Create a line drawing function in C for a text-based graphics editor. The function should draw a line between two points on a character canvas.
+
+# RESPONSE
+
+Generated drawLine() function using DDA (Digital Differential Analyzer) algorithm:
+
+* Takes start and end coordinates
+* Calculates increments
+* Plots points using '*'
+
+====================================================
+PROMPT 4
+========
+
+Create a circle drawing function in C using the Midpoint Circle Algorithm for a character-based graphics editor.
+
+# RESPONSE
+
+Generated drawCircle() function:
+
+* Uses midpoint circle algorithm
+* Plots 8 symmetric points
+* Performs boundary checking
+
+====================================================
+PROMPT 5
+========
+
+Create a triangle drawing function in C using line drawing operations. The triangle should be drawn on a text-based canvas.
+
+# RESPONSE
+
+Generated drawTriangle() function:
+
+* Uses three line segments
+* Creates an isosceles triangle
+* Reuses drawLine() function
+
+====================================================
+PROMPT 6
+========
+
+Implement object management for a graphics editor in C. The editor should support adding graphical objects and storing them in an array.
+
+# RESPONSE
+
+Generated:
+
+* Object structure
+* Object array
+* addObject() function
+* Support for Rectangle, Line, Circle, and Triangle objects
+
+====================================================
+PROMPT 7
+========
+
+Implement delete and modify operations for graphical objects in a C graphics editor.
+
+# RESPONSE
+
+Generated:
+
+* deleteObject()
+* modifyObject()
+* Object validation checks
+* Canvas redraw functionality
+
+====================================================
+PROMPT 8
+========
+
+Create a redraw function that clears the canvas and redraws all stored graphical objects.
+
+# RESPONSE
+
+Generated redrawObjects() function:
+
+* Clears canvas
+* Iterates through all stored objects
+* Draws each object again
+
+====================================================
+PROMPT 9
+========
+
+Create a function to save the current drawing from a 2D character canvas into a text file.
+
+# RESPONSE
+
+Generated saveCanvas() function:
+
+* Creates drawing.txt
+* Writes entire canvas to file
+* Handles file errors
+
+====================================================
+PROMPT 10
+=========
+
+Create a complete menu-driven C program for a 2D graphics editor supporting rectangle, line, circle, triangle, add, delete, modify, display, and save operations.
+
+# RESPONSE
+
+Generated the final integrated graphics editor program containing:
+
+* Canvas initialization
+* Shape drawing algorithms
+* Object management
+* Display functionality
+* Save functionality
+* Interactive user menu
