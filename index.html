@@ -26,7 +26,6 @@
         }
         @keyframes grid-move { 0% { transform: translateY(0); } 100% { transform: translateY(50px); } }
 
-        /* Glow Orbs */
         .glow-orb {
             position: fixed;
             border-radius: 50%;
@@ -36,13 +35,13 @@
             z-index: 0;
         }
 
-        /* Glass Effect */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
         }
 
         .glass-card:hover {
@@ -52,7 +51,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(6, 182, 212, 0.1);
         }
 
-        /* Gradient Text */
         .text-gradient {
             background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #f472b6 100%);
             -webkit-background-clip: text;
@@ -60,7 +58,6 @@
             background-clip: text;
         }
 
-        /* Floating Animation */
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(5deg); }
@@ -68,7 +65,6 @@
         .float { animation: float 6s ease-in-out infinite; }
         .float-delay { animation: float 8s ease-in-out infinite; animation-delay: 1s; }
 
-        /* Typing Cursor */
         .typing-cursor::after {
             content: '|';
             animation: blink 1s step-end infinite;
@@ -76,7 +72,6 @@
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #030712; }
         ::-webkit-scrollbar-thumb {
@@ -84,12 +79,6 @@
             border-radius: 3px;
         }
 
-        /* Skill Bar Animation */
-        .skill-fill {
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Button Glow */
         .btn-glow {
             position: relative;
             overflow: hidden;
@@ -104,13 +93,10 @@
         }
         .btn-glow:hover::before { left: 100%; }
 
-        /* Counter Animation */
         .counter { font-variant-numeric: tabular-nums; }
 
-        /* Project Card Hover */
-        .project-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .project-card:hover {
-            transform: scale(1.02) translateY(-10px);
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.2);
         }
     </style>
 </head>
@@ -176,7 +162,6 @@
             </div>
 
             <div class="order-1 lg:order-2 flex justify-center items-center relative">
-                <!-- Floating Elements -->
                 <div class="relative">
                     <div class="w-72 h-72 lg:w-96 lg:h-96 rounded-full border border-white/10 flex items-center justify-center relative float">
                         <div class="absolute inset-0 rounded-full border-2 border-dashed border-cyan-500/30 animate-[spin_20s_linear_infinite]"></div>
@@ -189,21 +174,16 @@
                         </div>
                     </div>
                     
-                    <!-- Floating Icons -->
                     <div class="absolute -top-4 -right-4 lg:top-0 lg:right-0 p-4 glass-card rounded-xl float">
                         <i data-lucide="code" class="w-8 h-8 text-cyan-400"></i>
                     </div>
                     <div class="absolute top-1/4 -left-8 lg:-left-12 p-4 glass-card rounded-xl float-delay">
                         <i data-lucide="brain" class="w-8 h-8 text-purple-400"></i>
                     </div>
-                    <div class="absolute -bottom-4 right-1/4 p-4 glass-card rounded-xl float">
-                        <i data-lucide="database" class="w-8 h-8 text-pink-400"></i>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll Down Indicator -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
             <span class="text-xs text-gray-500">Scroll Down</span>
             <i data-lucide="chevrons-down" class="w-5 h-5 text-gray-400"></i>
@@ -227,21 +207,6 @@
                 <p class="text-gray-300 leading-relaxed text-lg">
                     I enjoy building innovative projects, exploring new technologies, and contributing to the ever-evolving world of computer science. My goal is to become a skilled software engineer and technology innovator capable of creating impactful solutions for society.
                 </p>
-
-                <div class="flex flex-wrap gap-4 mt-8">
-                    <div class="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">
-                        <i data-lucide="code" class="w-4 h-4 inline mr-2"></i>Coding
-                    </div>
-                    <div class="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">
-                        <i data-lucide="brain" class="w-4 h-4 inline mr-2"></i>AI/ML
-                    </div>
-                    <div class="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">
-                        <i data-lucide="cpu" class="w-4 h-4 inline mr-2"></i>IoT
-                    </div>
-                    <div class="px-4 py-2 bg-white/5 rounded-full text-sm text-gray-300">
-                        <i data-lucide="database" class="w-4 h-4 inline mr-2"></i>Data Science
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -253,46 +218,82 @@
                 <span class="text-gradient">Education</span> Journey
             </h2>
             
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-6">
                 <!-- Engineering -->
                 <div class="glass-card p-8 rounded-2xl relative group">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/20 rounded-full blur-[40px] group-hover:bg-cyan-500/30 transition"></div>
-                    
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="p-4 bg-cyan-500/20 rounded-xl text-cyan-400">
-                            <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                    <div class="flex items-start gap-4">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400">
+                                <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                            </div>
+                            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center timeline-dot">
+                                <span class="text-xs font-bold">1</span>
+                            </div>
                         </div>
                         <div class="flex-1">
-                            <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded-full">Currently Pursuing</span>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded-full">Currently Pursuing</span>
+                            </div>
+                            <h3 class="text-xl font-bold">Bachelor of Technology</h3>
+                            <p class="text-gray-400">Computer Science & Information Technology</p>
+                            <p class="text-cyan-400 font-semibold mt-2">REVA University</p>
+                            <p class="text-gray-500 text-sm">1st Year (2nd Semester)</p>
                         </div>
                     </div>
-                    
-                    <h3 class="text-xl font-bold mb-1">Bachelor of Technology</h3>
-                    <p class="text-gray-400 mb-2">Computer Science & Information Technology</p>
-                    <p class="text-cyan-400 font-semibold">REVA University</p>
-                    <p class="text-gray-500 text-sm mt-2">1st Year (2nd Semester)</p>
                 </div>
 
-                <!-- PU College -->
+                <!-- 2nd PUC -->
                 <div class="glass-card p-8 rounded-2xl relative group">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/20 rounded-full blur-[40px] group-hover:bg-purple-500/30 transition"></div>
-                    
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="p-4 bg-purple-500/20 rounded-xl text-purple-400">
-                            <i data-lucide="book-open" class="w-8 h-8"></i>
+                    <div class="flex items-start gap-4">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400">
+                                <i data-lucide="book-open" class="w-8 h-8"></i>
+                            </div>
+                            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center timeline-dot">
+                                <span class="text-xs font-bold">2</span>
+                            </div>
                         </div>
                         <div class="flex-1">
-                            <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Completed</span>
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Completed</span>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">🏆 Distinction</span>
+                            </div>
+                            <h3 class="text-xl font-bold">2nd PUC (Class 12)</h3>
+                            <p class="text-gray-400">Science Stream (PCMB)</p>
+                            <p class="text-purple-400 font-semibold mt-2">Narayana PU College</p>
+                            
+                            <div class="flex items-center gap-6 mt-4">
+                                <div class="text-center">
+                                    <p class="text-3xl font-bold text-white"><span class="counter" data-target="87">0</span>%</p>
+                                    <p class="text-sm text-gray-500">Percentage</p>
+                                </div>
+                                <div class="h-12 w-px bg-white/10"></div>
+                                <div>
+                                    <p class="text-sm text-gray-400">Top Performer</p>
+                                    <p class="text-xs text-gray-500">Academic Excellence</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <h3 class="text-xl font-bold mb-1">Class 12 (2nd PUC)</h3>
-                    <p class="text-gray-400 mb-2">Science Stream (PCMB)</p>
-                    <p class="text-purple-400 font-semibold">Narayana PU College</p>
-                    
-                    <div class="flex items-center gap-4 mt-4">
-                        <div class="text-center">
-                            <p class="text-3xl font-bold text-white counter" data-target="87">0</p>
-                            <p class="text-sm text-gray-500">Percentage</p>
+                </div>
+
+                <!-- 10th -->
+                <div class="glass-card p-8 rounded-2xl relative group">
+                    <div class="flex items-start gap-4">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-pink-500/20 rounded-xl flex items-center justify-center text-pink-400">
+                                <i data-lucide="school" class="w-8 h-8"></i>
+                            </div>
+                            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center timeline-dot">
+                                <span class="text-xs font-bold">3</span>
+                            </div>
                         </div>
-                        <div class="h-
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Completed</span>
+                            </div>
+                            <h3 class="text-xl font-bold">Class 10 (CBSE)</h3>
+                            <p class="text-gray-400">Science & Mathematics</p>
+                            <p class="text-pink-400 font-semibold mt-2">Kendriya Vidyalaya Malleswaram</p>
+                            
+                            <
